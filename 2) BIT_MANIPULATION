@@ -1,36 +1,41 @@
-
 #include <bits/stdc++.h>
 using namespace std;
-void insert(int val,long long  &no){
+void insert(  int val, long long  &no){
     no=no | (1<<val);
     // cout<<no<<endl;
 }
-void delet(int val,long long &no){
+void delet(  int val, long long   &no){
     no=no &(~(1<<val));
     // cout<<no<<endl;
 }
 int main() {
-    long long  no=0;
+    long long    no=0;
     int q;
+       int n=63;
     cin>>q;
-    int val;
-    for(int i=0;i<q;i++){
+      int val;
+      int maxi=-1;
+    for(   int i=0;i<q;i++){
         
         cin>>val;
         insert(val,no);
+        maxi=max(maxi,val);
     }
-    int p;
+       int p;
     cin>>p;
-    for(int i=0;i<p;i++){
+    for(   int  i=0;i<p;i++){
         
         cin>>val;
         delet(val,no);
     }
     cout<<no<<endl;
     // print all the numbers
-    for(long long   i=0;i<=63;i++){
+    for(   int  i=0;i<=maxi;i++){
         
-        if(no&(1<<i)){cout<<i<<" "<<(1<<i)<<" "<<no;
+        
+        // cout<<val;
+       
+        if(no&(1<<i)){cout<<i<<" "<<" "<<no;
         cout<<endl;}
     }
 }
